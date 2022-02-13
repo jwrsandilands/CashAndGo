@@ -1,0 +1,16 @@
+# Made in Blockbench 3.8.4
+newmtl m_0
+map_Kd TaxiBase.png 
+newmtl m_1
+map_Kd TaxiGlass.png 
+newmtl m_2
+map_Kd TaxiBase2.png 
+newmtl m_3
+map_Kd TaxiBase3.png 
+newmtl m_4
+map_Kd TaxiBottom.png 
+newmtl m_5
+map_Kd TaxiHeadlight.png 
+newmtl m_6
+map_Kd TaxiRearlight.png 
+newmtl none
