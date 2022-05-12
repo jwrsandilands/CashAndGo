@@ -10,13 +10,13 @@ public class TimeRemaining : MonoBehaviour
     public bool alarm = false;
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         if(gameTime > 0.01f)
         {
             gameTime -= Time.deltaTime;
-            timeToMinutes = (gameTime / 60);
-            timeToSeconds = gameTime % 60;
+            timeToMinutes = Mathf.FloorToInt(gameTime / 60);
+            timeToSeconds = Mathf.FloorToInt(gameTime % 60);
         }
         else
         {

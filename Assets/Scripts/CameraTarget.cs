@@ -11,7 +11,12 @@ public class CameraTarget : MonoBehaviour
 
     void Update()
     {
-        transform.LookAt(targetPoint);
+        //transform.LookAt(targetPoint);
+
+        transform.localEulerAngles = new Vector3(68.199f, -90, 0);
+
+        //transform.Rotate(68.199f, -90, 0);
+
 
         //transform.RotateAround(targetPoint.position, targetPoint.up, rotateSpeed);
         transform.position = targetPoint.position + (targetPoint.transform.up * cameraUp) + (targetPoint.transform.right * cameraRight);

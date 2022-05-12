@@ -12,11 +12,14 @@ public class TimeDisplayer : MonoBehaviour
     {
         GameObject car = GameObject.Find("Car");
         float seconds = car.GetComponent<TimeRemaining>().timeToSeconds;
-        string sec = seconds.ToString();
+        string sec = seconds.ToString("00");
         float minutes = car.GetComponent<TimeRemaining>().timeToMinutes;
-        string min = minutes.ToString();
+        string min = minutes.ToString("00");
 
-        string[] secondsArray = new string[1];
+        timeText.text = min + ":" + sec;
+
+
+/*        string[] secondsArray = new string[1];
         secondsArray = sec.Split('.');
         string[] minutesArray = new string[1];
         minutesArray = min.Split('.');
@@ -28,6 +31,6 @@ public class TimeDisplayer : MonoBehaviour
         else
         {
             timeText.text = minutesArray[0] + ":" + secondsArray[0];
-        }
+        }*/
     }
 }

@@ -24,7 +24,7 @@ public class CarControl : MonoBehaviour
             Vector3 turnVector = mousePos.position - carPos.position;
             Vector3 carForward = transform.forward;
 
-            float carAngle = Vector3.Angle(carForward, turnVector);
+            float carAngle = Vector3.Angle(new Vector3(carForward.x, 0, carForward.z), new Vector3(turnVector.x, 0, turnVector.z));
             Vector2 cross = Vector3.Cross(carForward, turnVector);
             if (cross.y < 0)
             {

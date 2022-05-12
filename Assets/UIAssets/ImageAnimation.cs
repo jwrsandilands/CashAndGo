@@ -19,7 +19,7 @@ public class ImageAnimation : MonoBehaviour
 		UIimage = GetComponent<Image>();
 	}
 
-	void Update()
+	void FixedUpdate()
 	{
 		//advance the frame
 		animFrame++;

@@ -9,7 +9,7 @@ public class WheelsToPhysics : MonoBehaviour
     public float rotationAngle = 0.0f;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //define the raycast collision hit point
         RaycastHit hit;
@@ -27,22 +27,25 @@ public class WheelsToPhysics : MonoBehaviour
         }
 
         //set the wheel's rotation to the rotation of the collider
-        transform.rotation = wheel.transform.rotation * Quaternion.Euler(0, -rotationAngle, 0);
+        //transform.rotation = wheel.transform.rotation * Quaternion.Euler(0, -rotationAngle, 0);
+        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, wheel.steerAngle - transform.localEulerAngles.z - 90, transform.localEulerAngles.z);
+
         //transform.forward = transform.up * wheel.steerAngle;
-        rotationAngle += wheel.rpm * (360 / 60) * Time.deltaTime;
+        //rotationAngle += wheel.rpm * (360 / 60) * Time.deltaTime;
+        transform.Rotate(0, (wheel.rpm / 60 * 360 * Time.deltaTime), 0);
 
         //OPTIONAL - MIGHT USE LATER
         //get the collision point of the wheel
-        WheelHit wheelHit;
-        wheel.GetGroundHit(out wheelHit);
+        //WheelHit wheelHit;
+        //wheel.GetGroundHit(out wheelHit);
 
         //create the slip prefab when slipping value it more than 1.5
-        if(Mathf.Abs(wheelHit.sidewaysSlip) > 1.5)
-        {
-            if (slipPrefab)
-            {
-                Instantiate(slipPrefab, wheelHit.point, Quaternion.identity);
-            }
-        }
+        //if(Mathf.Abs(wheelHit.sidewaysSlip) > 1.5)
+        //{
+        //    if (slipPrefab)
+        //    {
+        //        Instantiate(slipPrefab, wheelHit.point, Quaternion.identity);
+        //    }
+        //}
     }
 }
